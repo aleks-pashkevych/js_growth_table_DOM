@@ -30,40 +30,52 @@ const drawColumns = () => {
 
 appendRow.addEventListener('click', (e) => {
   if (rowsNumber < 10) {
+    removeRow.disabled = false;
     rowsNumber++;
     removeTable();
     drawColumns();
-  } else {
+  }
+
+  if (rowsNumber === 10) {
     e.target.disabled = true;
   }
 });
 
 removeRow.addEventListener('click', (e) => {
   if (rowsNumber > 2) {
+    appendRow.disabled = false;
     rowsNumber--;
     removeTable();
     drawColumns();
-  } else {
+  }
+
+  if (rowsNumber === 2) {
     e.target.disabled = true;
   }
 });
 
 appendColumn.addEventListener('click', (e) => {
   if (columnsNumber < 10) {
+    removeColumn.disabled = false;
     columnsNumber++;
     removeTable();
     drawColumns();
-  } else {
+  }
+
+  if (columnsNumber === 10) {
     e.target.disabled = true;
   }
 });
 
 removeColumn.addEventListener('click', (e) => {
   if (columnsNumber > 2) {
+    appendColumn.disabled = false;
     columnsNumber--;
     removeTable();
     drawColumns();
-  } else {
+  }
+
+  if (columnsNumber === 2) {
     e.target.disabled = true;
   }
 });
